@@ -15,12 +15,16 @@ def webAppKeyboard(): #создание клавиатуры с webapp кноп�
 
 def webAppKeyboardInline(): #создание inline-клавиатуры с webapp кнопкой
    keyboard = types.InlineKeyboardMarkup(row_width=1) #создаем клавиатуру inline
-   webApp = types.WebAppInfo("https://telegram.sams.ru") #создаем webappinfo - формат хранения url
+   webApp = types.WebAppInfo("https://telegram.mihailgok.ru") #создаем webappinfo - формат хранения url
    one = types.InlineKeyboardButton(text="Веб приложение", web_app=webApp) #создаем кнопку типа webapp
    keyboard.add(one) #добавляем кнопку в клавиатуру
 
    return keyboard #возвращаем клавиатуру
 
+
+@PersonalDefender_bot(commands=['protect']) #обрабатываем команду старт
+def start_fun(message):
+   bot.send_message( message.chat.id, 'Привет, я бот для проверки телеграмм webapps!)\nЗапустить тестовые страницы можно нажав на кнопки.', parse_mode="Markdown", reply_markup=webAppKeyboard()) #отправляем сообщение с нужной клавиатурой
 
 
 @PersonalDefender_bot(content_types="text")

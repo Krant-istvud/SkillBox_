@@ -23,12 +23,12 @@ def webAppKeyboardInline(): #создание inline-клавиатуры с web
 
 
 
-@bot.message_handler(content_types="text")
+@PersonalDefender_bot(content_types="text")
 def new_mes(message):
    start_fun(message)
 
 
-@bot.message_handler(content_types="web_app_data") #получаем отправленные данные 
+@PersonalDefender_bot(content_types="web_app_data") #получаем отправленные данные 
 def answer(webAppMes):
    print(webAppMes) #вся информация о сообщении
    print(webAppMes.web_app_data.data) #конкретно то что мы передали в бота
